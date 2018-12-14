@@ -26,7 +26,7 @@ int main()
 	//	path = (char*)calloc(MAX_PATH, sizeof(char));
 	//}
 	//char* path[10] = { "c:\\*","d:\\*","e:\\*" };
-	char* path = "f:\\test\\*.txt";
+	char* path = "e:\\*";
 	//int i = 0;
 	//for (i = 0; i < 3; i++)
 	//{
@@ -35,7 +35,9 @@ int main()
 	//	printf_s("===========================\n");
 	//	
 	//}
-	sfile(path);
+	//sfile(path);
+	//printf_s("%s\n", path + 3);
+	find_all(path);
 	system("pause");
-	return 0;
+ 	return 0;
 }

@@ -71,9 +71,45 @@ void sfile(const char* path)//遍历单层目录下的文件夹
 	}
 	
 }
-void fileaddpass(const char* filepath)
+//void fileaddpass(const char* filepath)
+//{
+//	FILE *fp;
+//	fopen_s(&fp, filepath, "a+");
+//	fread_s()
+//}
+void find_all(char* path)
 {
-	FILE *fp;
-	fopen_s(&fp, filepath, "a+");
-	fread_s()
+	long handle = 0;
+	int n = 0;
+	int i = 0;
+	struct _finddata_t fileinfo;
+	handle = _findfirst(path, &fileinfo);
+	const char* folder[MAX_PATH];
+	char* folderpath;
+	if (handle == 0)
+	{
+		printf_s("_findfirst error:%s\n", (char*)stderr);
+	}
+	else
+	{
+		printf_s("%s\n%d\n", fileinfo.name,fileinfo.attrib);
+		while (!_findnext(handle, &fileinfo))
+		{
+			if (fileinfo.attrib == 16)
+			{
+				n++;
+				folder[n - 1] = calloc(MAX_PATH, sizeof(char*));
+				strcpy_s(folder[n - 1], sizeof(fileinfo.name), fileinfo.name);
+			}
+			printf_s("%s\n%d\n", fileinfo.name, fileinfo.attrib);
+		}
+		printf_s("有%d个文件夹\n", n);
+	}
+	for (i = 0; i < n; i++)
+	{
+		folderpath = calloc(MAX_PATH, sizeof(char*));
+		strcat_s(folderpath, MAX_PATH, path);
+		strcat_s(folderpath, MAX_PATH, folder[i]);
+		printf_s("%s\n", folderpath);
+	}
 }
