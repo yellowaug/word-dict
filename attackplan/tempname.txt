@@ -1,0 +1,13 @@
+f:\test\下载必看.txt
+f:\test\内容简介.TXT
+f:\test\华为路由器配置.txt
+f:\test\新建文本文档.txt
+f:\test\目录.TXT
+f:\test\红树林软件使用说明.txt
+f:\test\chardict.txt
+f:\test\dict.txt
+f:\test\sqldata.txt
+f:\test\tempsql.txt
+f:\test\下载必看.txt
+f:\test\目录.TXT
+f:\test\红树林软件使用说明.txt
