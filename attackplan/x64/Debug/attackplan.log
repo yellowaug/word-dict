@@ -1,10 +1,2 @@
-﻿  searchfile.c
-e:\windows_c\attackplan\attackplan\searchfile.c(13): warning C4133: “函数”: 从“DWORD [260]”到“LPSTR”的类型不兼容
-e:\windows_c\attackplan\attackplan\searchfile.c(33): warning C4244: “=”: 从“intptr_t”转换到“long”，可能丢失数据
-e:\windows_c\attackplan\attackplan\searchfile.c(59): warning C4047: “函数”:“const char *”与“int (__cdecl *)(const char *)”的间接级别不同
-e:\windows_c\attackplan\attackplan\searchfile.c(59): warning C4024: “perror”: 形参和实参 1 的类型不同
-e:\windows_c\attackplan\attackplan\searchfile.c(86): warning C4244: “=”: 从“intptr_t”转换到“long”，可能丢失数据
-e:\windows_c\attackplan\attackplan\searchfile.c(102): warning C4090: “函数”: 不同的“const”限定符
-e:\windows_c\attackplan\attackplan\searchfile.c(23): warning C4715: “ssdikstr”: 不是所有的控件路径都返回值
-e:\windows_c\attackplan\attackplan\searchfile.c(21): warning C4172: 返回局部变量或临时变量的地址: dwdrivenum
-  attackplan.vcxproj -> E:\windows_c\attackplan\x64\Debug\attackplan.exe
+﻿  main.c
+  attackplan.vcxproj -> H:\gitc\word-dict\x64\Debug\attackplan.exe

@@ -83,16 +83,18 @@ void find_all(char* path)
 	int n = 0;
 	int i = 0;
 	struct _finddata_t fileinfo;
-	handle = _findfirst(path, &fileinfo);
 	const char* folder[MAX_PATH];
 	char* folderpath;
+	char* t_filepath;
+	t_filepath = calloc(MAX_PATH, sizeof(char*));
+	handle = _findfirst(path, &fileinfo);
 	if (handle == 0)
 	{
 		printf_s("_findfirst error:%s\n", (char*)stderr);
 	}
 	else
 	{
-		printf_s("%s\n%d\n", fileinfo.name,fileinfo.attrib);
+		//printf_s("%s\n%d\n", fileinfo.name,fileinfo.attrib);
 		while (!_findnext(handle, &fileinfo))
 		{
 			if (fileinfo.attrib == 16)
@@ -101,15 +103,35 @@ void find_all(char* path)
 				folder[n - 1] = calloc(MAX_PATH, sizeof(char*));
 				strcpy_s(folder[n - 1], sizeof(fileinfo.name), fileinfo.name);
 			}
-			printf_s("%s\n%d\n", fileinfo.name, fileinfo.attrib);
+			//printf_s("%s\n%d\n", fileinfo.name, fileinfo.attrib);
 		}
 		printf_s("有%d个文件夹\n", n);
 	}
+	//t_filepath = re_strtok(path);
 	for (i = 0; i < n; i++)
 	{
 		folderpath = calloc(MAX_PATH, sizeof(char*));
-		strcat_s(folderpath, MAX_PATH, path);
+		
+		strcat_s(folderpath, MAX_PATH, t_filepath);
 		strcat_s(folderpath, MAX_PATH, folder[i]);
 		printf_s("%s\n", folderpath);
 	}
+}
+//重置的strtok函数，原strtok函数无法传入指针函数，
+//所以在这里进行了第二次的封装
+char* re_strtok(void)
+{
+	char s[] = "e:\\*";
+	char* p_str;
+	char* temp_str;
+	temp_str = (char*)calloc(20, sizeof(char*));
+	temp_str = strtok(s, "*");
+	//strcpy_s(s, MAX_PATH, path);
+	//p_str = calloc(MAX_PATH, sizeof(char*));
+	//temp_str = calloc(MAX_PATH, sizeof(char*));
+	//temp_str = strtok(s, "*");
+	//strcpy_s(temp_str, MAX_PATH, s);
+	printf_s("%s\n",temp_str);
+	return temp_str;
+	
 }

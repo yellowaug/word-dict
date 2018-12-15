@@ -37,7 +37,14 @@ int main()
 	//}
 	//sfile(path);
 	//printf_s("%s\n", path + 3);
-	find_all(path);
+	//find_all(path);
+	char* t;
+	char* t1;
+	t = (char*)calloc(20, sizeof(char*));
+	t1 = (char*)calloc(20, sizeof(char*));
+	t = re_strtok();
+	strcat_s(t1, 20, t);
+	printf_s("%s\n", t1);
 	system("pause");
  	return 0;
 }
