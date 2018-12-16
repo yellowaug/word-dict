@@ -4,47 +4,13 @@
 #include"SEARCHFILE.h"
 int main()
 {
-	//DWORD* resdisk;
-	//char* path;
-	//char getpath[10][MAX_PATH] = { 0 };
-	//int i = 0;
-	//path = (char*)calloc(MAX_PATH, sizeof(char));
-	//resdisk = (char*)calloc(MAX_PATH, sizeof(char*));
-	//resdisk = ssdikstr();
-	//char* p_str = "*";
-	//for (i = 0;i<10;i++ )
-	//{
-	//	
-	//	//printf_s("%c\t%d\n", *(resdisk + i),strlen((resdisk + i)));
-	//	//path = (char*)(resdisk + i);
-	//	strcat_s(path, 10, (char*)(resdisk + i));
-	//	strcat_s(path, 10, p_str);
-	//	printf_s("%s\n", path);
-	//	sfile(path);
-	//	if (strlen((resdisk + i)) == 0)
-	//		break;
-	//	path = (char*)calloc(MAX_PATH, sizeof(char));
-	//}
 	//char* path[10] = { "c:\\*","d:\\*","e:\\*" };
-	char* path = "e:\\*";
-	//int i = 0;
-	//for (i = 0; i < 3; i++)
-	//{
-	//	//printf_s("%s目录下的文件\n", path[i]);
-	//	sfile(path);
-	//	printf_s("===========================\n");
-	//	
-	//}
-	//sfile(path);
-	//printf_s("%s\n", path + 3);
+	//char* path = "e:\\*";
 	//find_all(path);
-	char* t;
-	char* t1;
-	t = (char*)calloc(20, sizeof(char*));
-	t1 = (char*)calloc(20, sizeof(char*));
-	t = re_strtok();
-	strcat_s(t1, 20, t);
-	printf_s("%s\n", t1);
+	testdef t2;
+	memset(&t2, 0, 20);
+	t2 = test();
+	puts(t2.t_char);
 	system("pause");
  	return 0;
 }
