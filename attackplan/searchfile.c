@@ -28,6 +28,7 @@ void sfile(const char* path)//遍历单层目录下的文件夹
 	long handle = 0;
 	char* temp_str;
 	struct _finddata_t fileinfo;
+	
 	char* temppath = "f:\\test\\";
 	memset(&fileinfo, 0, sizeof(fileinfo));
 	handle = _findfirst(path, &fileinfo);

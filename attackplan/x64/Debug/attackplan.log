@@ -1,4 +1,3 @@
 ﻿  main.c
-  test.c
-  正在生成代码...
-  attackplan.vcxproj -> H:\gitc\word-dict\x64\Debug\attackplan.exe
+e:\windows_c\word-dict\attackplan\main.c(26): warning C4133: “函数”: 从“disksec *”到“FILE *”的类型不兼容
+  attackplan.vcxproj -> E:\windows_c\word-dict\x64\Debug\attackplan.exe

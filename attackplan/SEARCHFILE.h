@@ -13,5 +13,18 @@ typedef struct _test
 	char* t_str[3];
 }testdef;
 testdef test(void);
+typedef struct _disksec
+{
+	char* diskpath[MAX_PATH];
+}disksec;
+disksec finddiskpath(void);
+typedef struct _find_top_file
+{
+	
+	char* filename[MAX_PATH];
+	int filenums;
+}findtopfile;
+findtopfile findfolder(const char* path);
+
 #endif // !SEARCHFILE_H_INCLUDE
 
