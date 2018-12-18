@@ -16,6 +16,7 @@ testdef test(void);
 typedef struct _disksec
 {
 	char* diskpath[MAX_PATH];
+	int disknum;
 }disksec;
 disksec finddiskpath(void);
 typedef struct _find_top_file

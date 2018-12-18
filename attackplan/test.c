@@ -45,7 +45,7 @@ disksec finddiskpath(void)
 			disk.diskpath[n] = (char*)(dwdrivenum + n);
 			printf_s("%s\n", disk.diskpath[n]);
 		}
-		
+		disk.disknum = n;
 	}
 	return disk;
 }
