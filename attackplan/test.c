@@ -56,6 +56,7 @@ findtopfile findfolder(const char *path)
 	struct _finddata_t fileinfo;
 	findtopfile foldername;
 	int n = 0;
+	int i = 0;
 	long handle = 0;
 	char* t_path;
 	t_path = (char*)calloc(100, 4);
@@ -78,11 +79,18 @@ findtopfile findfolder(const char *path)
 			{
 				foldername.filename[n] = (char*)calloc(MAX_PATH, sizeof(char*));
 				strcpy_s(foldername.filename[n], MAX_PATH, fileinfo.name);
-				printf_s("%s\n", fileinfo.name);
+				//printf_s("%s\n", fileinfo.name);
 				n++;
+			}
+			else
+			{
+				foldername.profilename[i] = (char*)calloc(MAX_PATH, 4);
+				strcpy_s(foldername.profilename[i], MAX_PATH, fileinfo.name);
+				i++;
 			}
 		}
 		foldername.filenums = n;
+		foldername.profilenums = i;
 	}
 	_findclose(handle);
 	free(t_path);
@@ -126,7 +134,7 @@ void refilename(const char* filename,const char* path)
 	char* tempnewname;
 	int stdcode = 0;
 	//char* t1;
-	int *s1 = 0;
+	int *s1;
 	int n = 0;
 	//t1 = (char*)calloc(100, 4);
 	newfilename = (char*)calloc(100, 4);
@@ -136,11 +144,17 @@ void refilename(const char* filename,const char* path)
 	strcat_s(tempname, 100, "\\");
 	strcat_s(tempname, 100, filename);
 	strcpy_s(newfilename, 100, filename);
-	printf_s("%d", strlen(newfilename));
+	printf_s("%d\n", strlen(newfilename));
 	for (n = 0; n < (strlen(newfilename) - 4); n++)
 	{
+		s1 = (int*)calloc(MAX_PATH, sizeof(long*));
 		s1 = (int*)(newfilename+n);
-		*s1 += n + 2;//加密方法
+		*s1 += 1;//加密方法
+	/*	if (*s1<0)
+		{
+			printf_s("%s长度溢出\n", filename);
+			break;
+		}*/
 	}
 	//printf_s("%p\n", newfilename);
 	//printf_s("%d\n", *s1);
@@ -150,7 +164,11 @@ void refilename(const char* filename,const char* path)
 	strcat_s(tempnewname, 100, newfilename);
 	stdcode = rename(tempname, tempnewname);
 	if (stdcode == -1)
+	{
+		printf_s("%s加密失败\n", tempname);
 		printf_s("rename() error!\n");
+	}
+		
 	free(newfilename);
 	free(tempname);
 	free(tempnewname);

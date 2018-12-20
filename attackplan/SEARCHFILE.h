@@ -22,8 +22,10 @@ disksec finddiskpath(void);
 typedef struct _find_top_file
 {
 	
-	char* filename[100];
+	char* filename[MAX_PATH];
+	char* profilename[MAX_PATH];
 	int filenums;
+	int profilenums;
 }findtopfile;
 findtopfile findfolder(const char* path);
 typedef struct _findfile

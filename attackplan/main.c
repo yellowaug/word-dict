@@ -4,11 +4,11 @@
 #include"SEARCHFILE.h"
 int main()
 {
-	//char* path[10] = { "c:\\*","d:\\*","e:\\*" };
 	findtopfile folder;
 	disksec path;
 	findfile file_name;
 	int n = 0;
+	int i = 0;
 	//find_all(path);
 	//testdef t2;
 	//memset(&t2, 0, 20);
@@ -47,25 +47,58 @@ int main()
 	//旧函数的功能，不用了
 	//find_all(temp_path);
 	folder = findfolder(temp_path[3]);
-	strcat_s(temp_filename, 100, temp_path[3]);
-	strcat_s(temp_filename, 100, folder.filename[0]);
-	strcat_s(temp_folderpath, 100, temp_path[3]);
-	strcat_s(temp_folderpath, 100, folder.filename[0]);
-	file_name = seachfile(temp_filename);
+	
+	for (i = 0; i < folder.filenums; i++)
+	{
+		//拼接目录扫描单个文件夹内的文件
+		temp_filename = (char*)calloc(100, 4);
+		strcat_s(temp_filename, 100, temp_path[3]);
+		strcat_s(temp_filename, 100, folder.filename[i]);
+		file_name = seachfile(temp_filename);
+		//拼接要修改的文件夹的目录
+		temp_folderpath = (char*)calloc(100, 4);
+		strcat_s(temp_folderpath, 100, temp_path[3]);
+		strcat_s(temp_folderpath, 100, folder.filename[i]);
+		for (n = 0; n < file_name.filenum; n++)
+		{
+			if (n == 0)
+			{
+				;
+			}
+			else
+			{
+				refilename(file_name.file[n], temp_folderpath);
+			}
+		}
+
+	}
+	for (i = 0; i < folder.profilenums; i++)
+	{
+		//temp_folderpath = (char*)calloc(100, 4);
+		//strcat_s(temp_folderpath, 100, temp_path[3]);
+		//strcat_s(temp_folderpath, 100, folder.profilename[i]);
+		refilename(folder.profilename[i],temp_path[3]);
+	}
+	
+	
 	//char* t_path = "F:\\test";
 	//char* t_name = "dict.txt";
-	for (n = 0; n < file_name.filenum; n++)
-	{
-		if (n == 0)
-		{
-			;
-		}
-		else
-		{
-			refilename(file_name.file[n],temp_folderpath);
-		}
-		
-	}
+
+	//strcat_s(temp_folderpath, 100, temp_path[3]);
+	//strcat_s(temp_folderpath, 100, folder.filename[0]);
+	//for (n = 0; n < file_name.filenum; n++)
+	//{
+	//	if (n == 0)
+	//	{
+	//		;
+	//	}
+	//	else
+	//	{
+	//		refilename(file_name.file[n],temp_folderpath);
+	//		
+	//	}
+	//	
+	//}
 	
 	system("pause");
  	return 0;
